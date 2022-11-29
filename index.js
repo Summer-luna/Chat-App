@@ -55,8 +55,8 @@ io.on("connection", async (socket) => {
 
   // listen to "sendMessage" event
   socket.on("sendMessage", async (data) => {
-    //socket.broadcast.emit("receive_message", data);
-    console.log(data);
+    socket.broadcast.emit("receive_message", data);
+
     try {
       const newMessage = {
         user_id: data.user.id,
@@ -70,7 +70,6 @@ io.on("connection", async (socket) => {
 });
 
 app.get("*", (req, res) => {
-  //console.log(path.join(__dirname, "./client/build", "index.html"));
   res.sendFile(path.join(__dirname, "./client/build", "index.html"));
 });
 
