@@ -18,13 +18,13 @@ const router = createBrowserRouter([
         path: "signup",
         element: <Signup />,
         action: signUpLoader,
-        errorElement: { ErrorElement },
+        errorElement: <ErrorElement/>
       },
       {
         path: "login",
         element: <Login />,
         action: loginLoader,
-        errorElement: { ErrorElement },
+        errorElement: <ErrorElement/>
       },
       {
         element: <ProtectedRoute />,
@@ -33,19 +33,18 @@ const router = createBrowserRouter([
             path: "chat",
             element: <Chat />,
             loader: chatLoader,
-            errorElement: { ErrorElement },
+            errorElement: <ErrorElement/>
           },
           {
             path: "history",
             element: <History />,
-            // errorElement: { ErrorElement },
+            errorElement: <ErrorElement/>
             loader: historyLoader,
           },
           {
             path: "profile",
             element: <Profile />,
-            // action: profileAction,
-            // errorElement: { ErrorElement },
+            errorElement: <ErrorElement/>
           },
         ],
       },
