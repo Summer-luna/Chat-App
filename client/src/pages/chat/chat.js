@@ -15,7 +15,6 @@ export const Chat = () => {
   const [chats, setChats] = useState(null);
   const messages = useLoaderData();
 
-  console.log(messages);
   useEffect(() => {
     setChats(messages);
   }, [messages]);

@@ -16,7 +16,6 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("./client/build"));
 }
 
-//console.log(process.env.CLIENT_URL);
 const io = new Server(server, {
   cors: {
     origin: process.env.CLIENT_URL,
