@@ -6,6 +6,7 @@ const chatRouter = require("./router/chatRouter.js");
 const { Server } = require("socket.io");
 const http = require("http");
 const chatService = require("./services/chatService");
+const path = require("path");
 
 const app = express();
 const port = 8080;
@@ -69,7 +70,7 @@ io.on("connection", async (socket) => {
 });
 
 app.get("*", (req, res) => {
-  console.log(path.join(__dirname, "./client/build", "index.html"));
+  //console.log(path.join(__dirname, "./client/build", "index.html"));
   res.sendFile(path.join(__dirname, "./client/build", "index.html"));
 });
 
