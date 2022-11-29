@@ -1,6 +1,7 @@
 const express = require("express");
 const chatService = require("../services/chatService");
 const { convertBufferToBase64 } = require("../util");
+const { formatDate } = require("../utils/utils");
 const chatRouter = express.Router();
 
 chatRouter.get("/createMessageTable", async (req, res) => {
@@ -21,9 +22,14 @@ chatRouter.get("/getAllMessages", async (req, res) => {
         return {
           ...d,
           user_avatar_url: convertBufferToBase64(d.user_avatar_url),
+          message_date: formatDate(d.message_date),
         };
       } else {
-        return { ...d, user_avatar_url: "https://i.imgur.com/WTIETJ1.png" };
+        return {
+          ...d,
+          user_avatar_url: "https://i.imgur.com/WTIETJ1.png",
+          message_date: formatDate(d.message_date),
+        };
       }
     });
 
@@ -42,9 +48,14 @@ chatRouter.get("/getCurrentUserMessages", async (req, res) => {
         return {
           ...d,
           user_avatar_url: convertBufferToBase64(d.user_avatar_url),
+          message_date: formatDate(d.message_date),
         };
       } else {
-        return { ...d, user_avatar_url: "https://i.imgur.com/WTIETJ1.png" };
+        return {
+          ...d,
+          user_avatar_url: "https://i.imgur.com/WTIETJ1.png",
+          message_date: formatDate(d.message_date),
+        };
       }
     });
 

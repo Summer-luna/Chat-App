@@ -7,7 +7,6 @@ import { Button } from "../../components/form/button";
 import { io } from "socket.io-client";
 import { useLoaderData } from "react-router-dom";
 import { getAllMessages } from "../../lib/api";
-import { formatDate } from "../../lib/utils";
 const socket = io.connect("https://chat-app-full.onrender.com");
 
 export const Chat = () => {
@@ -16,13 +15,13 @@ export const Chat = () => {
   const [chats, setChats] = useState(null);
   const messages = useLoaderData();
 
+  console.log(messages);
   useEffect(() => {
     setChats(messages);
   }, [messages]);
 
   useEffect(() => {
     socket.on("receive_message", async (data) => {
-      console.log("receive");
       const res = await getAllMessages();
       setChats(res.data);
     });
@@ -38,11 +37,11 @@ export const Chat = () => {
     const res = await getAllMessages();
     setChats(res.data);
   };
+
   console.log(chats);
   const renderContent =
     chats &&
     chats.map((chat) => {
-      chat.message_date = formatDate(chat.message_date);
       if (chat.user_id === user.id) {
         return <Message message={chat} key={chat.message_id} />;
       }
