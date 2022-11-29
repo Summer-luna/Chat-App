@@ -11,6 +11,10 @@ const app = express();
 const port = 8080;
 const server = http.createServer(app);
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("./client/build"));
+}
+
 //console.log(process.env.CLIENT_URL);
 const io = new Server(server, {
   cors: {
@@ -62,6 +66,10 @@ io.on("connection", async (socket) => {
       console.log(err);
     }
   });
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build", "index.html"));
 });
 
 server.listen(port, () => {

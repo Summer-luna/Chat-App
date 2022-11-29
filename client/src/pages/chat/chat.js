@@ -8,7 +8,7 @@ import { io } from "socket.io-client";
 import { useLoaderData } from "react-router-dom";
 import { getAllMessages } from "../../lib/api";
 import { formatDate } from "../../lib/utils";
-const socket = io.connect("https://chat-app-api-vqgz.onrender.com");
+const socket = io.connect("https://chat-app-full.onrender.com");
 
 export const Chat = () => {
   const { user } = useUserContext();
