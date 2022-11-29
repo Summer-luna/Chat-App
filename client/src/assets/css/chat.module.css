@@ -1,0 +1,30 @@
+.ChatContainer {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  background-color: blanchedalmond;
+  height: 93vh;
+}
+
+.ChatContainer h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.MessageContainer {
+  height: 80%;
+  overflow-y: scroll;
+}
+
+.SendContainer {
+  background-color: rgba(188, 183, 183, 0.6);
+  padding: 1rem;
+}
+
+.Inputs {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
