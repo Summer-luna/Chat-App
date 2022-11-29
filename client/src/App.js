@@ -6,7 +6,7 @@ import { Login, action as loginLoader } from "./pages/login/login";
 import { History, loader as historyLoader } from "./pages/history/history";
 import { Chat, loader as chatLoader } from "./pages/chat/chat";
 import { ProtectedRoute } from "./pages/ProtectedRoute";
-import { ErrorElement } from "./components/ui/errorElement";
+// import { ErrorElement } from "./components/ui/errorElement";
 import { Profile, action as profileAction } from "./pages/profile/profile";
 
 const router = createBrowserRouter([
@@ -18,13 +18,13 @@ const router = createBrowserRouter([
         path: "signup",
         element: <Signup />,
         action: signUpLoader,
-        errorElement: <ErrorElement />,
+        // errorElement: <ErrorElement />,
       },
       {
         path: "login",
         element: <Login />,
         action: loginLoader,
-        errorElement: <ErrorElement />,
+        // errorElement: <ErrorElement />,
       },
       {
         element: <ProtectedRoute />,
@@ -33,18 +33,18 @@ const router = createBrowserRouter([
             path: "chat",
             element: <Chat />,
             loader: chatLoader,
-            errorElement: <ErrorElement />,
+            // errorElement: <ErrorElement />,
           },
           {
             path: "history",
             element: <History />,
-            errorElement: <ErrorElement />,
+            // errorElement: <ErrorElement />,
             loader: historyLoader,
           },
           {
             path: "profile",
             element: <Profile />,
-            errorElement: <ErrorElement />,
+            // errorElement: <ErrorElement />,
           },
         ],
       },
