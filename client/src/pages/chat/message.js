@@ -8,7 +8,7 @@ export const Message = ({ message, left }) => {
 
   // scroll to new message
   useEffect(() => {
-    scrollToButtom(ref?.current);
+    scrollToButtom(ref.current);
   }, [message]);
 
   // change message to left side
