@@ -4,6 +4,6 @@ import axios from "axios";
 // https://chat-app-full.onrender.com
 
 export const axiosInstance = axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL: "https://chat-app-full.onrender.com",
   withCredentials: true,
 });
